@@ -24,6 +24,13 @@ export default function Page() {
     setColor(resolvedTheme === "dark" ? "#ffffff" : "#3582EF");
   }, [resolvedTheme]);
 
+  useEffect(() => {
+    const hasSubmitted = getLocalStorageItem("waitlist_submitted");
+    if (hasSubmitted) {
+      setSubmitted(true);
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -146,7 +153,7 @@ export default function Page() {
           className="mx-auto flex flex-col gap-4 sm:flex-row"
         >
           <AnimatePresence mode="wait">
-            {Boolean(getLocalStorageItem("waitlist_submitted")) ? (
+            {submitted ? (
               <motion.div
                 key="thank-you-message"
                 initial={{ opacity: 0, y: 10 }}

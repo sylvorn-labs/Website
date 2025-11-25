@@ -1,7 +1,14 @@
+"use client";
+
 export function setLocalStorageItem(key: string, value: string): void {
-  localStorage.setItem(key, value);
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, value);
+  }
 }
 
 export function getLocalStorageItem(key: string): string | null {
-  return localStorage.getItem(key);
+  if (typeof window !== "undefined") {
+    return localStorage.getItem(key);
+  }
+  return null;
 }
