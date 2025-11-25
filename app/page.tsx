@@ -1,65 +1,236 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { ArrowRight, Sparkles, Code, Star, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import type React from "react";
+
+import { Particles } from "@/components/ui/particles";
+import { Spotlight } from "@/components/ui/spotlight";
+import { cn } from "@/lib/utils";
+import { supabase } from "@/utils/supabase";
+import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
+
+export default function Page() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { resolvedTheme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(resolvedTheme === "dark" ? "#ffffff" : "#3582EF");
+  }, [resolvedTheme]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    const { error } = await supabase.from("waitlist_emails").insert({
+      email: email,
+    });
+
+    console.log(error);
+
+    setLocalStorageItem("waitlist_submitted", "true");
+
+    setSubmitted(true);
+    setIsSubmitting(false);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="relative flex min-h-screen w-full items-center justify-center overflow-hidden xl:h-screen">
+      <Spotlight
+        gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(215, 83%, 58%, 0.1) 0, hsla(215, 83%, 63%, 0.02) 50%, hsla(215, 83%, 53%, 0) 80%)"
+        gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(215, 83%, 85%, 0.06) 0, hsla(215, 83%, 63%, 0.02) 80%, transparent 100%)"
+        gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(215, 83%, 85%, 0.04) 0, hsla(215, 83%, 85%, 0.04) 80%, transparent 100%)"
+      />
+
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={100}
+        ease={80}
+        refresh
+        color={color}
+      />
+
+      <div className="relative z-100 mx-auto max-w-2xl px-4 py-16 text-center">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="border-primary/10 from-primary/15 to-primary/5 mb-8 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 backdrop-blur-sm"
+        >
+          <span className="text-sm font-medium spin">⭐</span>
+          <span className="text-sm font-medium">Sylvorn Labs</span>
+          <motion.div
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <ArrowRight className="h-4 w-4" />
+          </motion.div>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className={cn(
+            "from-foreground via-foreground/80 to-foreground/40 mb-4 cursor-crosshair bg-gradient-to-b bg-clip-text text-4xl font-bold text-transparent sm:text-7xl",
+          )}
+        >
+          Join the{" "}
+          <span className="bg-primary from-foreground to-primary via-blue-300 bg-clip-text text-transparent dark:bg-gradient-to-b">
+            Waitlist
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-muted-foreground mt-2 mb-12 sm:text-lg"
+        >
+          Precision-built software, crafted for those who expect more.
+          <br className="hidden sm:block" />
+          Join the waitlist to stay ahead.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3"
+        >
+          <div
+            className={cn(
+              "border-primary/10 flex flex-col items-center justify-center rounded-xl border bg-white/5 p-4 backdrop-blur-md",
+              resolvedTheme === "dark" ? "glass" : "glass2",
+            )}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <Code className="text-primary mb-2 h-5 w-5" />
+            <span className="text-xl font-bold">Bespoke Solutions</span>
+          </div>
+
+          <div
+            className={cn(
+              "border-primary/10 flex flex-col items-center justify-center rounded-xl border bg-white/5 p-4 backdrop-blur-md",
+              resolvedTheme === "dark" ? "glass" : "glass2",
+            )}
+          >
+            <ExternalLink className="text-primary mb-2 h-5 w-5" />
+            <span className="text-xl font-bold">Innovation at Core</span>
+          </div>
+
+          <div
+            className={cn(
+              "border-primary/10 flex flex-col items-center justify-center rounded-xl border bg-white/5 p-4 backdrop-blur-md",
+              resolvedTheme === "dark" ? "glass" : "glass2",
+            )}
+          >
+            <Star className="text-primary mb-2 h-5 w-5" />
+            <span className="text-xl font-bold">Premium Experience</span>
+          </div>
+        </motion.div>
+
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          onSubmit={handleSubmit}
+          className="mx-auto flex flex-col gap-4 sm:flex-row"
+        >
+          <AnimatePresence mode="wait">
+            {Boolean(getLocalStorageItem("waitlist_submitted")) ? (
+              <motion.div
+                key="thank-you-message"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.6 }}
+                className={cn(
+                  "border-primary/20 from-primary/10 to-primary/10 text-primary flex-1 cursor-pointer rounded-xl border bg-gradient-to-r via-transparent px-6 py-4 font-medium backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] active:brightness-125",
+                  resolvedTheme === "dark" ? "glass" : "glass2",
+                )}
+              >
+                <span className="flex items-center justify-center gap-2">
+                  Thanks for joining!{" "}
+                  <Sparkles className="h-4 w-4 animate-pulse" />
+                </span>
+              </motion.div>
+            ) : (
+              <>
+                <div className="relative flex-1">
+                  <motion.input
+                    key="email-input"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setEmail(e.target.value)
+                    }
+                    required
+                    className="border-primary/20 text-foreground placeholder:text-muted-foreground/70 focus:border-primary/50 focus:ring-primary/30 w-full rounded-xl border bg-white/5 px-6 py-4 backdrop-blur-md transition-all focus:ring-2 focus:outline-none"
+                  />
+                  {error && (
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="border-destructive/40 bg-destructive/10 text-destructive mt-2 rounded-xl border px-4 py-1 text-sm sm:absolute"
+                    >
+                      {error}
+                    </motion.p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting || submitted}
+                  className="group text-primary-foreground focus:ring-primary/50 relative overflow-hidden rounded-xl bg-gradient-to-b from-blue-500 to-blue-700 px-8 py-4 font-semibold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] focus:ring-2 focus:outline-none active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {isSubmitting ? "Joining..." : "Join Waitlist"}
+                    <Sparkles className="h-4 w-4 transition-all duration-300 group-hover:rotate-12" />
+                  </span>
+                  <span className="to-primary absolute inset-0 z-0 bg-gradient-to-r from-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                </button>
+              </>
+            )}
+          </AnimatePresence>
+        </motion.form>
+      </div>
+
+      <style jsx global>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translateY(-20px) translateX(10px);
+            opacity: 0.8;
+          }
+          50% {
+            transform: translateY(-40px) translateX(-10px);
+            opacity: 0.4;
+          }
+          75% {
+            transform: translateY(-20px) translateX(10px);
+            opacity: 0.6;
+          }
+        }
+      `}</style>
+    </main>
   );
 }
