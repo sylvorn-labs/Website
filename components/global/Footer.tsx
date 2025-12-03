@@ -80,11 +80,6 @@ export function Footer() {
             </Link>
             .
           </p>
-
-          {/* Designer Credit */}
-          <p className="text-sm leading-[18px] text-white/60 font-madetommy">
-            Designed By Ashara Hitanshu
-          </p>
         </div>
 
         {/* Desktop Layout */}
