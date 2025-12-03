@@ -1,6 +1,7 @@
 "use client";
-import { useEffect } from "react";
 import { motion, stagger, useAnimate, useInView } from "motion/react";
+import { useEffect, JSX } from "react";
+
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
