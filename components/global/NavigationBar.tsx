@@ -1,9 +1,9 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 export function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ export function NavigationBar() {
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-6 px-6 py-3.5 rounded-[48px] bg-white/20 backdrop-blur-[32px] border border-white/40">
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
+        <Link href="/" className="shrink-0">
           <Image
             src="/logo/full-logo.svg"
             alt="Sylvorn Labs"
@@ -60,7 +60,7 @@ export function NavigationBar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex-shrink-0"
+              className="shrink-0"
               onClick={() => setIsMenuOpen(false)}
             >
               <Image

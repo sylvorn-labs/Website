@@ -1,4 +1,5 @@
-import { supabase } from "@/utils/supabase";
-import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
+import { WaitListForm } from "@/components/pages/WaitList";
 
-export default function Page() {}
+export default function Page() {
+  return <WaitListForm />;
+}

@@ -3,6 +3,8 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavigationBar } from "@/components/global/NavigationBar";
+import { NotificationButton } from "@/components/global/NotificationButton";
+import { Footer } from "@/components/global/Footer";
 
 export const metadata: Metadata = {
   title: "Sylvorn Labs",
@@ -25,6 +27,8 @@ export default function RootLayout({
         >
           <NavigationBar />
           {children}
+          <Footer />
+          <NotificationButton />
         </ThemeProvider>
       </body>
     </html>
