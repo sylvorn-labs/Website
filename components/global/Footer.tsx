@@ -52,33 +52,25 @@ export function Footer() {
 
           {/* Copyright & Links */}
           <div className="flex flex-col items-center gap-6 text-center">
-            <p
-              className="text-sm leading-[18px] text-white/60"
-              style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-            >
+            <p className="text-sm leading-[18px] text-white/60 font-madetommy">
               © 2025 Sylvorn All Rights Reserved.
             </p>
             <Link
               href="/privacy"
-              className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80"
-              style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+              className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80"
-              style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+              className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
             >
               Terms of Service
             </Link>
           </div>
 
           {/* Contact */}
-          <p
-            className="text-center text-sm leading-[18px] text-white/60"
-            style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-          >
+          <p className="text-center text-sm leading-[18px] text-white/60 font-madetommy">
             For queries, write to us at{" "}
             <Link
               href="mailto:hello@labs.sylvorn.com"
@@ -90,10 +82,7 @@ export function Footer() {
           </p>
 
           {/* Designer Credit */}
-          <p
-            className="text-sm leading-[18px] text-white/60"
-            style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-          >
+          <p className="text-sm leading-[18px] text-white/60 font-madetommy">
             Designed By Ashara Hitanshu
           </p>
         </div>
@@ -115,33 +104,26 @@ export function Footer() {
               </Link>
 
               {/* Copyright */}
-              <p
-                className="text-sm leading-[18px] text-white/60"
-                style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-              >
+              <p className="text-sm leading-[18px] text-white/60 font-madetommy">
                 © 2025 Sylvorn All Rights Reserved.
               </p>
             </div>
 
             {/* Middle Column - Contact */}
             <div className="flex flex-col gap-12">
-              <p
-                className="max-w-[232px] text-sm leading-[18px] text-white/60"
-                style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-              >
+              <p className="max-w-[232px] text-sm leading-[18px] text-white/60 font-madetommy">
                 For any questions or inquiries, feel free to reach out to us at
               </p>
               <Link
                 href="mailto:hello@labs.sylvorn.com"
-                className="text-sm leading-[18px] text-white transition-opacity hover:opacity-80"
-                style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+                className="text-sm leading-[18px] text-white transition-opacity hover:opacity-80 font-madetommy"
               >
                 hello@labs.sylvorn.com
               </Link>
             </div>
 
             {/* Right Column - Social & Links */}
-            <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-12">
               {/* Social Icons */}
               <div className="flex items-center gap-12">
                 {socialLinks.map((social) => (
@@ -168,27 +150,17 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Link
                   href="/privacy"
-                  className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80"
-                  style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+                  className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/terms"
-                  className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80"
-                  style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+                  className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
                 >
                   Terms of Service
                 </Link>
               </div>
-
-              {/* Designer Credit */}
-              <p
-                className="text-sm leading-[18px] text-white/60"
-                style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-              >
-                Designed By Ashara Hitanshu
-              </p>
             </div>
           </div>
         </div>

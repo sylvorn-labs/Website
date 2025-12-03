@@ -11,25 +11,16 @@ export function HeroSection() {
           <div className="flex flex-col items-center gap-16 md:gap-16 w-full">
             {/* Headings */}
             <div className="flex flex-col items-center gap-0 w-full">
-              <h1
-                className="text-[32px] md:text-[64px] font-normal leading-10 md:leading-[76px] text-center text-white"
-                style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-              >
+              <h1 className="text-[32px] md:text-[64px] font-normal leading-10 md:leading-[76px] text-center text-white font-madetommy">
                 Crafting the Future,
               </h1>
-              <h1
-                className="text-[32px] md:text-[64px] font-normal leading-10 md:leading-[76px] text-center text-white"
-                style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-              >
+              <h1 className="text-[32px] md:text-[64px] font-normal leading-10 md:leading-[76px] text-center text-white font-madetommy">
                 of Intelligent Software
               </h1>
             </div>
 
             {/* Subtitle */}
-            <p
-              className="text-xs font-normal leading-4 text-center text-white"
-              style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-            >
+            <p className="text-xs font-normal leading-4 text-center text-white font-madetommy">
               Crafted today, built for tomorrow&apos;s challenges.
             </p>
           </div>
@@ -39,10 +30,7 @@ export function HeroSection() {
             href="#about"
             className="flex items-center gap-2 opacity-60 hover:opacity-80 transition-opacity"
           >
-            <span
-              className="text-[10px] md:text-xs font-normal leading-4 text-center text-[rgb(227,236,255)] uppercase tracking-wider"
-              style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
-            >
+            <span className="text-[10px] md:text-xs font-normal leading-4 text-center text-[rgb(227,236,255)] uppercase tracking-wider font-madetommy">
               Learn More
             </span>
             <svg

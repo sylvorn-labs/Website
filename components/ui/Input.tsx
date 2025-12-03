@@ -4,7 +4,6 @@ import Image from "next/image";
 import { InputHTMLAttributes, forwardRef, useState } from "react";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  onSubmit?: (e: React.FormEvent) => void;
   showSubmitButton?: boolean;
   variant?: "default" | "filled";
 }
@@ -20,11 +19,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     // Auto-detect variant based on focus/value if not explicitly set
     const activeVariant =
       variant ?? (isFocused || hasValue ? "filled" : "default");
-
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      onSubmit?.(e);
-    };
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
       setIsFocused(true);
@@ -55,7 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         : "placeholder:text-white/40";
 
     return (
-      <form onSubmit={handleSubmit} className="relative w-full">
+      <div className="relative w-full">
         <div
           className={`relative flex items-center h-[72px] rounded-[48px] border-[0.5px] px-7 transition-all duration-200 ${containerBg} ${containerBorder}`}
         >
@@ -84,7 +78,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-      </form>
+      </div>
     );
   },
 );

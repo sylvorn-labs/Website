@@ -31,9 +31,8 @@ export function NavigationBar() {
         {/* Navigation Links */}
         <div className="flex items-center gap-8">
           <Link
-            href="/about"
-            className="text-white text-xs font-normal leading-4 text-center hover:opacity-80 transition-opacity"
-            style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+            href="#about"
+            className="text-white text-xs font-normal leading-4 text-center hover:opacity-80 transition-opacity font-madetommy"
           >
             About
           </Link>
@@ -42,9 +41,8 @@ export function NavigationBar() {
           <div className="h-6 w-px bg-white/40" />
 
           <Link
-            href="/stay-notified"
-            className="text-white text-xs font-normal leading-4 text-center hover:opacity-80 transition-opacity"
-            style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+            href="#stay-tuned"
+            className="text-white text-xs font-normal leading-4 text-center hover:opacity-80 transition-opacity font-madetommy"
           >
             Stay Notified
           </Link>
@@ -96,18 +94,16 @@ export function NavigationBar() {
               {/* Menu Links */}
               <div className="flex flex-col px-6 py-4 gap-4">
                 <Link
-                  href="/about"
+                  href="#about"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity"
-                  style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+                  className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity font-madetommy"
                 >
                   About
                 </Link>
                 <Link
-                  href="/stay-notified"
+                  href="#stay-tuned"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity"
-                  style={{ fontFamily: "MADETOMMY, system-ui, sans-serif" }}
+                  className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity font-madetommy"
                 >
                   Stay Notified
                 </Link>
