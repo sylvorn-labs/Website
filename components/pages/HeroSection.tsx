@@ -15,7 +15,7 @@ export function HeroSection() {
                 Crafting the Future,
               </h1>
               <h1 className="text-[32px] md:text-[64px] font-normal leading-10 md:leading-[76px] text-center text-white font-madetommy">
-                of Intelligent Software
+                One Line at a Time
               </h1>
             </div>
 

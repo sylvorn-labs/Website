@@ -89,7 +89,7 @@ export function AnimatedBackground() {
 
       {/* Background Blur Overlay - Rectangle 1 */}
       <div
-        className="absolute inset-0 bg-black/32"
+        className="absolute inset-0 bg-[#070724]/50"
         style={{
           backdropFilter: "blur(152px)",
           WebkitBackdropFilter: "blur(152px)",
