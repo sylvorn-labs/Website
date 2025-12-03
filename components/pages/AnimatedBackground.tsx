@@ -67,9 +67,9 @@ export function AnimatedBackground() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(197.5 166.891) rotate(90) scale(166.891 197.5)"
             >
-              <stop offset="0.394231" stop-color="#11205A" />
-              <stop offset="0.639423" stop-color="#293D99" />
-              <stop offset="1" stop-color="#4E66CF" />
+              <stop offset="0.394231" stopColor="#11205A" />
+              <stop offset="0.639423" stopColor="#293D99" />
+              <stop offset="1" stopColor="#4E66CF" />
             </radialGradient>
             <radialGradient
               id="paint1_radial_33_196"
@@ -79,9 +79,9 @@ export function AnimatedBackground() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(198.229 333.782) rotate(90) scale(167.62 196.771)"
             >
-              <stop offset="0.394231" stop-color="#11205A" />
-              <stop offset="0.639423" stop-color="#293D99" />
-              <stop offset="1" stop-color="#4E66CF" />
+              <stop offset="0.394231" stopColor="#11205A" />
+              <stop offset="0.639423" stopColor="#293D99" />
+              <stop offset="1" stopColor="#4E66CF" />
             </radialGradient>
           </defs>
         </svg>

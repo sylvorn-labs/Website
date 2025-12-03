@@ -55,8 +55,8 @@ export function HeroSection() {
               <path
                 d="M8 4v8m0 0L4.5 9.09M8 12l3.5-2.91"
                 stroke="#E3ECFF"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Link>
