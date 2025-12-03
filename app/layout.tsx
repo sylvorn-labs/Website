@@ -2,7 +2,6 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { NotificationButton } from "@/components/global/NotificationButton";
 import { NavigationBar } from "@/components/global/NavigationBar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Footer } from "@/components/global/Footer";
@@ -149,7 +148,6 @@ export default function RootLayout({
           <NavigationBar />
           {children}
           <Footer />
-          <NotificationButton />
         </ThemeProvider>
       </body>
     </html>

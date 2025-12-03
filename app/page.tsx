@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/pages/HeroSection";
 import { AboutSection } from "@/components/pages/AboutSection";
 import { StayTunedSection } from "@/components/pages/StayTunedSection";
 import { AnimatedBackground } from "@/components/pages/AnimatedBackground";
+import { NotificationButton } from "@/components/global/NotificationButton";
 
 export default function Page() {
   return (
@@ -15,6 +16,8 @@ export default function Page() {
         <AboutSection />
         <StayTunedSection />
       </main>
+
+      <NotificationButton />
     </>
   );
 }

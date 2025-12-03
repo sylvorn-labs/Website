@@ -56,13 +56,13 @@ export function Footer() {
               © 2025 Sylvorn All Rights Reserved.
             </p>
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
             >
               Privacy Policy
             </Link>
             <Link
-              href="/terms"
+              href="/privacy-policy"
               className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
             >
               Terms of Service
@@ -149,13 +149,13 @@ export function Footer() {
               {/* Legal Links */}
               <div className="flex items-center gap-3">
                 <Link
-                  href="/privacy"
+                  href="/privacy-policy"
                   className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
                 >
                   Privacy Policy
                 </Link>
                 <Link
-                  href="/terms"
+                  href="/privacy-policy"
                   className="text-sm leading-[18px] text-white/60 transition-colors hover:text-white/80 font-madetommy"
                 >
                   Terms of Service

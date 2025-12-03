@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { InputHTMLAttributes, forwardRef, useState } from "react";
+import Image from "next/image";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   showSubmitButton?: boolean;
@@ -35,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       props.onChange?.(e);
     };
 
-    // Variant-specific styles
+    // Variant-specific styles matching Zeplin Frame 9 design
     const containerBg =
       activeVariant === "filled"
         ? "bg-white"
@@ -51,12 +51,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="relative w-full">
         <div
-          className={`relative flex items-center h-[72px] rounded-[48px] border-[0.5px] px-7 transition-all duration-200 ${containerBg} ${containerBorder}`}
+          className={`relative flex items-center h-[72px] rounded-[48px] border-[0.5px] pl-7 pr-3 transition-all duration-200 ${containerBg} ${containerBorder}`}
         >
           <input
             ref={ref}
             type="email"
-            className={`flex-1 bg-transparent text-xl leading-7 outline-none transition-colors duration-200 ${textColor} ${placeholderColor} ${className}`}
+            className={`flex-1 bg-transparent font-['MADETOMext-xl leading-7 outline-none transition-colors duration-200 ${textColor} ${placeholderColor} ${className}`}
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChange={handleChange}
@@ -65,7 +65,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {showSubmitButton && (
             <button
               type="submit"
-              className="shrink-0 w-12 h-12 flex items-center justify-center bg-black rounded-full transition-transform hover:scale-105 active:scale-95"
+              className="shrink-0 w-12 h-12 flex items-center justify-center bg-black rounded-tl-xl rounded-tr-3xl rounded-bl-xl rounded-br-3xl transition-transform hover:scale-105 active:scale-95"
               aria-label="Submit"
             >
               <Image
@@ -73,7 +73,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 alt="Submit"
                 width={16}
                 height={16}
-                className="w-4 h-4 rotate-90"
+                className="w-4 h-4"
               />
             </button>
           )}
