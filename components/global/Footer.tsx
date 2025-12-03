@@ -4,34 +4,24 @@ import Link from "next/link";
 export function Footer() {
   const socialLinks = [
     {
-      name: "X (Twitter)",
-      href: "https://twitter.com/sylvornlabs",
-      icon: "/icons/social-x.svg",
-    },
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com/company/sylvorn",
-      icon: "/icons/social-linkedin.svg",
-    },
-    {
       name: "Instagram",
-      href: "https://instagram.com/sylvornlabs",
+      href: "https://www.instagram.com/sylvorn.labs",
       icon: "/icons/social-instagram.svg",
     },
     {
-      name: "GitHub",
-      href: "https://github.com/sylvornlabs",
-      icon: "/icons/social-github.svg",
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/sylvorn-labs",
+      icon: "/icons/social-linkedin.svg",
     },
     {
-      name: "YouTube",
-      href: "https://youtube.com/@sylvornlabs",
-      icon: "/icons/social-youtube.svg",
+      name: "Facebook",
+      href: "https://www.facebook.com/sylvorn.labs",
+      icon: "/icons/social-facebook.svg",
     },
   ];
 
   return (
-    <footer className="w-full bg-transparent py-12 md:py-16 lg:py-20">
+    <footer className="relative w-full bg-transparent py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4">
         {/* Mobile Layout */}
         <div className="flex flex-col items-center gap-8 md:hidden">
