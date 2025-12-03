@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
@@ -86,30 +87,44 @@ export function NavigationBar() {
           </div>
 
           {/* Menu Items (Mobile) */}
-          {isMenuOpen && (
-            <>
-              {/* Separator Line */}
-              <div className="w-full h-px bg-white/40" />
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                {/* Separator Line */}
+                <div className="w-full h-px bg-white/40" />
 
-              {/* Menu Links */}
-              <div className="flex flex-col px-6 py-4 gap-4">
-                <Link
-                  href="#about"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity font-madetommy"
+                {/* Menu Links */}
+                <motion.div
+                  initial={{ y: -10 }}
+                  animate={{ y: 0 }}
+                  exit={{ y: -10 }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
+                  className="flex flex-col px-6 py-4 gap-4"
                 >
-                  About
-                </Link>
-                <Link
-                  href="#stay-tuned"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity font-madetommy"
-                >
-                  Stay Notified
-                </Link>
-              </div>
-            </>
-          )}
+                  <Link
+                    href="#about"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity font-madetommy"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href="#stay-tuned"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-white text-xs font-normal leading-4 hover:opacity-80 transition-opacity font-madetommy"
+                  >
+                    Stay Notified
+                  </Link>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </nav>
