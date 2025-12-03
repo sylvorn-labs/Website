@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import { motion, stagger, useAnimate, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -8,27 +8,32 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 0.5,
+  as: Tag = "p",
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  as?: keyof JSX.IntrinsicElements;
 }) => {
   const [scope, animate] = useAnimate();
+  const isInView = useInView(scope, { once: true });
   const wordsArray = words.split(" ");
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      },
-    );
-  }, [scope.current]);
+    if (isInView) {
+      animate(
+        "span",
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration ? duration : 1,
+          delay: stagger(0.2),
+        },
+      );
+    }
+  }, [isInView]);
 
   const renderWords = () => {
     return (
@@ -50,13 +55,5 @@ export const TextGenerateEffect = ({
     );
   };
 
-  return (
-    <div className={cn("font-bold", className)}>
-      <div className="mt-4">
-        <div className=" dark:text-white text-black text-2xl leading-snug tracking-wide">
-          {renderWords()}
-        </div>
-      </div>
-    </div>
-  );
+  return <Tag className={cn("font-bold", className)}>{renderWords()}</Tag>;
 };

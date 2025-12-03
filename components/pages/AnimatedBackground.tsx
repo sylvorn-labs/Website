@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { GradientBackground } from "./GradientBackground";
 
 export function AnimatedBackground() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -27,7 +28,7 @@ export function AnimatedBackground() {
   const scale = 1 + scrollProgress * 1.5;
 
   // Calculate rotation - gradually increase rotation as user scrolls
-  const rotation = 31.1 + scrollProgress * 30;
+  const _rotation = 31.1 + scrollProgress * 30;
 
   return (
     <div
@@ -38,12 +39,12 @@ export function AnimatedBackground() {
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{
-          transform: `scale(${scale}) rotate(${rotation}deg)`,
+          transform: `scale(${scale}) `,
           transition: "transform 0.1s ease-out",
         }}
       >
         {/* Mobile and Desktop gradient container */}
-        <svg
+        {/*<svg
           width="395"
           height="502"
           viewBox="0 0 395 502"
@@ -84,7 +85,9 @@ export function AnimatedBackground() {
               <stop offset="1" stopColor="#4E66CF" />
             </radialGradient>
           </defs>
-        </svg>
+        </svg>*/}
+
+        <GradientBackground />
       </div>
 
       {/* Background Blur Overlay - Rectangle 1 */}
