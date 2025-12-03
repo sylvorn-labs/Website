@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 import { ThemeProvider } from "@/components/theme-provider";
+import { NavigationBar } from "@/components/global/NavigationBar";
 
 export const metadata: Metadata = {
   title: "Sylvorn Labs",
@@ -13,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body>
         <ThemeProvider
           attribute="class"
@@ -21,6 +23,7 @@ export default function RootLayout({
           enableSystem={true}
           disableTransitionOnChange={true}
         >
+          <NavigationBar />
           {children}
         </ThemeProvider>
       </body>
