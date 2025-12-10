@@ -41,7 +41,7 @@ export function Footer() {
                   alt={social.name}
                   width={16}
                   height={16}
-                  className="opacity-40"
+                  className="opacity-80"
                 />
               </Link>
             ))}
@@ -127,7 +127,6 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-opacity hover:opacity-100"
                     aria-label={social.name}
                   >
                     <Image
@@ -135,7 +134,8 @@ export function Footer() {
                       alt={social.name}
                       width={16}
                       height={16}
-                      className="opacity-40"
+                      className="opacity-80 hover:opacity-100 tracking-opacity"
+                      
                     />
                   </Link>
                 ))}

@@ -37,11 +37,9 @@ export function StayTunedSection() {
               </h2>
 
               {/* Email Input Section */}
-              <div className="flex flex-col items-center gap-4 w-full">
+              <div className="flex flex-col items-center gap-6 w-full">
                 {/* Input Field */}
-                {/*<div className="w-full md:w-auto">*/}
                 <WaitListForm />
-                {/*</div>*/}
 
                 {/* Privacy Text */}
                 <p className="text-sm font-normal leading-[18px] text-center text-white/60 max-w-[243px] font-madetommy">

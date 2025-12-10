@@ -56,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <input
             ref={ref}
             type="email"
-            className={`flex-1 bg-transparent font-['MADETOMext-xl leading-7 outline-none transition-colors duration-200 ${textColor} ${placeholderColor} ${className}`}
+            className={`flex-1 bg-transparent font-normal leading-7 outline-none transition-colors duration-200 ${textColor} ${placeholderColor} ${className}`}
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChange={handleChange}

@@ -2,12 +2,9 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 
 export function AboutSection() {
   return (
-    <section
-      id="about"
-      className="relative min-h-screen w-full overflow-hidden"
-    >
-      {/* Content Container */}
-      <div className="relative z-10 flex min-h-screen flex-col items-start justify-center px-10 md:px-48 py-20 md:py-32">
+    <section id="about" className="relative w-full overflow-hidden">
+      {/* Content Container - Sticky to keep content in view while scrolling */}
+      <div className="sticky top-0 z-10 flex min-h-screen flex-col items-start justify-center px-10 md:px-48 py-20 md:py-32">
         {/* Main Heading */}
 
         <TextGenerateEffect
