@@ -36,7 +36,7 @@ const AnimatedWord = ({
         filter: filter ? blurValue : "none",
       }}
     >
-      {word}{" "}
+      {word}&nbsp;
     </motion.span>
   );
 };
